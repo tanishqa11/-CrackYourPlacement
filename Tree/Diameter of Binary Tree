@@ -1,0 +1,15 @@
+class Solution {
+    private int maxi;
+    public int diameterOfBinaryTree(TreeNode root) {
+        f(root);
+        return maxi;
+        }
+    public int f(TreeNode root){
+        if(root==null)
+            return 0;
+        int lr=(f(root.right));
+        int rt=(f(root.left));
+        maxi=Math.max(maxi,(lr+rt));
+        return 1+Math.max(lr,rt);
+    }
+}
